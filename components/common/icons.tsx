@@ -44,10 +44,10 @@ import {
 } from "react-icons/hi";
 import { IoIosGitBranch } from "react-icons/io";
 import {
-  SiAmazonwebservices,
+  // SiAmazonwebservices,
   SiAngular,
   SiBootstrap,
-  SiCss3,
+  // SiCss3,
   SiExpress,
   SiGmail,
   SiGraphql,
@@ -67,6 +67,15 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiX,
+  SiDocker,
+  SiDjango,
+  SiFastapi,
+  SiGit,
+  SiLinux,
+  SiNginx,
+  SiPostgresql,
+  SiPython,
+  SiRedis,
 } from "react-icons/si";
 
 export const Icons = {
@@ -105,10 +114,10 @@ export const Icons = {
   link: HiOutlineLink,
   externalLink: HiOutlineExternalLink,
   star: AiFillStar,
-  amazonaws: SiAmazonwebservices,
+  // amazonaws: SiAmazonwebservices,
   angular: SiAngular,
   bootstrap: SiBootstrap,
-  css3: SiCss3,
+  // css3: SiCss3,
   express: SiExpress,
   graphql: SiGraphql,
   html5: SiHtml5,
@@ -130,6 +139,15 @@ export const Icons = {
   linkedin: SiLinkedin,
   userFill: BiSolidUser,
   work: HiBriefcase,
+  python: SiPython,
+  fastapi: SiFastapi,
+  django: SiDjango,
+  postgresql: SiPostgresql,
+  docker: SiDocker,
+  linux: SiLinux,
+  git: SiGit,
+  redis: SiRedis,
+  nginx: SiNginx,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

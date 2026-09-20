@@ -9,152 +9,109 @@ export interface skillsInterface {
 
 export const skillsUnsorted: skillsInterface[] = [
   {
-    name: "Next.js",
+    name: "Python",
     description:
-      "Effortlessly build dynamic apps with routing, layouts, loading UI, and API routes.",
+      "Build backend services, automation tools, APIs, and data-driven applications.",
     rating: 5,
-    icon: Icons.nextjs,
+    icon: Icons.python
   },
   {
-    name: "React",
+    name: "FastAPI",
     description:
-      "Craft interactive user interfaces using components, state, props, and virtual DOM.",
+      "Build high-performance, modern REST APIs and backend services with Python.",
     rating: 5,
-    icon: Icons.react,
+    icon: Icons.fastapi,
   },
   {
-    name: "GraphQL",
+    name: "Django",
     description:
-      "Fetch data precisely with a powerful query language for APIs and runtime execution.",
+      "Develop robust web applications and backend systems with Python's mature web framework.",
+    rating: 5,
+    icon: Icons.django,
+  },
+  {
+    name: "PostgreSQL",
+    description:
+      "Design and manage reliable relational databases for production applications.",
+    rating: 5,
+    icon: Icons.postgresql,
+  },
+  {
+    name: "Docker",
+    description:
+      "Containerize applications and create reproducible development and deployment environments.",
+    rating: 5,
+    icon: Icons.docker,
+  },
+  {
+    name: "Linux",
+    description:
+      "Manage Linux servers, processes, networking, permissions, and production environments.",
+    rating: 5,
+    icon: Icons.linux,
+  },
+  {
+    name: "Git",
+    description:
+      "Manage source code, branches, collaboration, and version history with Git.",
+    rating: 5,
+    icon: Icons.git,
+  },
+  {
+    name: "Redis",
+    description:
+      "Use in-memory data structures for caching, queues, sessions, and background processing.",
     rating: 4,
-    icon: Icons.graphql,
-  },
-  {
-    name: "Nest.js",
-    description:
-      "Create scalable and modular applications with a progressive Node.js framework.",
-    rating: 4,
-    icon: Icons.nestjs,
-  },
-  {
-    name: "express.js",
-    description:
-      "Build web applications and APIs quickly using a fast, unopinionated Node.js framework.",
-    rating: 5,
-    icon: Icons.express,
-  },
-  {
-    name: "Node.js",
-    description:
-      "Run JavaScript on the server side, enabling dynamic and responsive applications.",
-    rating: 5,
-    icon: Icons.nodejs,
+    icon: Icons.redis,
   },
   {
     name: "MongoDB",
     description:
-      "Store and retrieve data seamlessly with a flexible and scalable NoSQL database.",
-    rating: 5,
+      "Work with flexible document-oriented data models for applications that benefit from NoSQL storage.",
+    rating: 4,
     icon: Icons.mongodb,
   },
   {
-    name: "Typescript",
+    name: "Django REST Framework",
     description:
-      "Enhance JavaScript with static types, making code more understandable and reliable.",
-    rating: 5,
-    icon: Icons.typescript,
-  },
-  {
-    name: "Javascript",
-    description:
-      "Create interactive and dynamic web experiences with the versatile scripting language.",
-    rating: 5,
-    icon: Icons.javascript,
-  },
-  {
-    name: "HTML 5",
-    description:
-      "Structure web content beautifully with the latest version of HyperText Markup Language.",
+      "Build structured REST APIs and authentication systems on top of Django.",
     rating: 4,
-    icon: Icons.html5,
+    icon: Icons.django,
   },
   {
-    name: "CSS 3",
+    name: "Nginx",
     description:
-      "Style web pages creatively with the latest iteration of Cascading Style Sheets.",
+      "Configure reverse proxies, web servers, SSL termination, and application routing.",
     rating: 4,
-    icon: Icons.css3,
+    icon: Icons.nginx,
   },
   {
-    name: "React Native",
+    name: "React",
     description:
-      "Develop cross-platform mobile apps using React for consistent and engaging experiences.",
+      "Build interactive user interfaces using reusable components and modern React patterns.",
     rating: 4,
     icon: Icons.react,
   },
   {
-    name: "Angular",
+    name: "Next.js",
     description:
-      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
-    rating: 3,
-    icon: Icons.angular,
-  },
-  {
-    name: "Redux",
-    description:
-      "Manage app state effectively using a predictable and centralized state container.",
+      "Build modern full-stack React applications with routing, rendering, and optimized production builds.",
     rating: 4,
-    icon: Icons.redux,
+    icon: Icons.nextjs,
   },
   {
-    name: "Socket.io",
+    name: "TypeScript",
     description:
-      "Enable real-time, bidirectional communication between clients and servers effortlessly.",
-    rating: 3,
-    icon: Icons.socketio,
-  },
-  {
-    name: "Material UI",
-    description:
-      "Create stunning and responsive UIs with a popular React UI framework.",
+      "Write safer and more maintainable JavaScript applications with static typing.",
     rating: 4,
-    icon: Icons.mui,
+    icon: Icons.typescript,
   },
-
   {
     name: "Tailwind CSS",
     description:
-      "Design beautiful, modern websites faster with a utility-first CSS framework.",
-    rating: 5,
-    icon: Icons.tailwindcss,
-  },
-  {
-    name: "AWS",
-    description:
-      "Utilize Amazon Web Services to build and deploy scalable, reliable, and secure applications.",
-    rating: 3,
-    icon: Icons.amazonaws,
-  },
-  {
-    name: "Bootstrap",
-    description:
-      "Quickly create responsive and appealing web designs using a popular CSS framework.",
-    rating: 2,
-    icon: Icons.bootstrap,
-  },
-  {
-    name: "MySQL",
-    description:
-      "Manage and organize relational databases efficiently for data-driven applications.",
-    rating: 2,
-    icon: Icons.mysql,
-  },
-  {
-    name: "Netlify",
-    description:
-      "Manage and organize relational databases efficiently for data-driven applications.",
+      "Build responsive user interfaces efficiently with a utility-first CSS framework.",
     rating: 4,
-    icon: Icons.netlify,
+    icon: Icons.tailwindcss,
   },
 ];
 
