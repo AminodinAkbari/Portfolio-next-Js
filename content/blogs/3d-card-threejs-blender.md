@@ -45,7 +45,7 @@ Set up your `index.html` file. This is the canvas for the 3D scene and links to 
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Card | Naman Barkiya</title>
+    <title>Card | Amin Akbari</title>
   </head>
   <body>
     <canvas class="webgl"></canvas>

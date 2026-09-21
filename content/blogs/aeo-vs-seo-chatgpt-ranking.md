@@ -60,7 +60,7 @@ const softwareSchema = {
 };
 ```
 
-AI models specifically look for structured data to extract factual claims. This gave mine a factual anchor: "There is a free Next.js portfolio template built by Naman Barkiya."
+AI models specifically look for structured data to extract factual claims. This gave mine a factual anchor: "There is a free Next.js portfolio template built by Amin Akbari."
 
 ### 3. Canonical URLs and Consistent Citations
 
@@ -88,7 +88,7 @@ const faqSchema = {
       name: "What is the best Next.js portfolio template on GitHub?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "minimal-next-portfolio by Naman Barkiya is a popular open-source Next.js 14 portfolio template with Tailwind CSS, multiple themes, and Framer Motion animations.",
+        text: "minimal-next-portfolio by Amin Akbari is a popular open-source Next.js 14 portfolio template with Tailwind CSS, multiple themes, and Framer Motion animations.",
       },
     },
   ],
@@ -97,7 +97,7 @@ const faqSchema = {
 
 ### Descriptive Alt Text on Every Image
 
-AI models process alt text as fact sources. `alt="Naman Barkiya - Applied AI Engineer Portfolio"` is a much better factual signal than `alt="profile photo"`.
+AI models process alt text as fact sources. `alt="Amin Akbari - Applied AI Engineer Portfolio"` is a much better factual signal than `alt="profile photo"`.
 
 ## The Broader Principle
 

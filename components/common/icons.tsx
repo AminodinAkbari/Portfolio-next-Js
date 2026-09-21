@@ -76,6 +76,15 @@ import {
   SiPostgresql,
   SiPython,
   SiRedis,
+  // new things
+  SiCelery,
+  SiPrometheus,
+  SiGrafana,
+  SiElasticsearch,
+  SiKibana,
+  SiSwagger,
+  SiGithubactions,
+  SiTestinglibrary,
 } from "react-icons/si";
 
 export const Icons = {
@@ -148,6 +157,15 @@ export const Icons = {
   git: SiGit,
   redis: SiRedis,
   nginx: SiNginx,
+  // new things
+  celery: SiCelery,
+  prometheus: SiPrometheus,
+  grafana: SiGrafana,
+  elasticsearch: SiElasticsearch,
+  kibana: SiKibana,
+  swagger: SiSwagger,
+  githubactions: SiGithubactions,
+  testing: SiTestinglibrary,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

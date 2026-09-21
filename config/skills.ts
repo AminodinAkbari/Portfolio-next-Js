@@ -1,122 +1,193 @@
 import { Icons } from "@/components/common/icons";
 
-export interface skillsInterface {
+export interface SkillItemData {
   name: string;
   description: string;
-  rating: number;
-  icon: any;
+  icon?: keyof typeof Icons;
 }
 
-export const skillsUnsorted: skillsInterface[] = [
+export interface SkillGroup {
+  title: string;
+  skills: SkillItemData[];
+}
+
+export const skillGroups: SkillGroup[] = [
   {
-    name: "Python",
-    description:
-      "Build backend services, automation tools, APIs, and data-driven applications.",
-    rating: 5,
-    icon: Icons.python
+    title: "Backend Development",
+    skills: [
+      {
+        name: "Python",
+        description:
+          "Build backend services, automation tools, APIs, and data-driven applications.",
+        icon: "python",
+      },
+      {
+        name: "FastAPI",
+        description:
+          "Build high-performance, modern REST APIs and backend services with Python.",
+        icon: "fastapi",
+      },
+      {
+        name: "Django",
+        description:
+          "Develop robust web applications and backend systems with Python's mature web framework.",
+        icon: "django",
+      },
+      {
+        name: "Django REST Framework",
+        description:
+          "Build structured REST APIs and authentication systems on top of Django.",
+        icon: "django",
+      },
+      {
+        name: "Celery",
+        description:
+          "Run background jobs, scheduled tasks, and distributed workers in Python applications.",
+        icon: "celery",
+      },
+    ],
   },
   {
-    name: "FastAPI",
-    description:
-      "Build high-performance, modern REST APIs and backend services with Python.",
-    rating: 5,
-    icon: Icons.fastapi,
+    title: "Databases",
+    skills: [
+      {
+        name: "PostgreSQL",
+        description:
+          "Design and manage reliable relational databases for production applications.",
+        icon: "postgresql",
+      },
+      {
+        name: "Redis",
+        description:
+          "Use in-memory data structures for caching, queues, sessions, and background processing.",
+        icon: "redis",
+      },
+      {
+        name: "MongoDB",
+        description:
+          "Work with flexible document-oriented data models for NoSQL storage.",
+        icon: "mongodb",
+      },
+    ],
   },
   {
-    name: "Django",
-    description:
-      "Develop robust web applications and backend systems with Python's mature web framework.",
-    rating: 5,
-    icon: Icons.django,
+    title: "Infrastructure & Deployment",
+    skills: [
+      {
+        name: "Docker",
+        description:
+          "Containerize applications and create reproducible development and deployment environments.",
+        icon: "docker",
+      },
+      {
+        name: "Linux Server Administration",
+        description:
+          "Manage Linux servers, processes, networking, permissions, and production environments.",
+        icon: "linux",
+      },
+      {
+        name: "Nginx",
+        description:
+          "Configure reverse proxies, web servers, SSL termination, and application routing.",
+        icon: "nginx",
+      },
+    ],
   },
   {
-    name: "PostgreSQL",
-    description:
-      "Design and manage reliable relational databases for production applications.",
-    rating: 5,
-    icon: Icons.postgresql,
+    title: "Development Practices",
+    skills: [
+      {
+        name: "API Design",
+        description:
+          "Design clean, versioned, and well-documented APIs for real-world clients.",
+        icon: "swagger",
+      },
+      {
+        name: "CI/CD",
+        description:
+          "Automate build, test, and deployment pipelines for fast and safe releases.",
+        icon: "githubactions",
+      },
+    ],
   },
   {
-    name: "Docker",
-    description:
-      "Containerize applications and create reproducible development and deployment environments.",
-    rating: 5,
-    icon: Icons.docker,
+    title: "Software Engineering",
+    skills: [
+      {
+        name: "Git",
+        description:
+          "Manage source code, branches, collaboration, and version history with Git.",
+        icon: "git",
+      },
+      {
+        name: "Software Testing",
+        description:
+          "Write unit, integration, and end-to-end tests to keep software reliable.",
+        icon: "testing",
+      },
+      {
+        name: "SOLID Principles",
+        description:
+          "Apply object-oriented design principles to build maintainable, extensible code.",
+      },
+    ],
   },
   {
-    name: "Linux",
-    description:
-      "Manage Linux servers, processes, networking, permissions, and production environments.",
-    rating: 5,
-    icon: Icons.linux,
+    title: "Frontend",
+    skills: [
+      {
+        name: "TypeScript",
+        description:
+          "Write safer and more maintainable JavaScript applications with static typing.",
+        icon: "typescript",
+      },
+      {
+        name: "React",
+        description:
+          "Build interactive user interfaces using reusable components and modern React patterns.",
+        icon: "react",
+      },
+      {
+        name: "Next.js",
+        description:
+          "Build modern full-stack React applications with routing and optimized production builds.",
+        icon: "nextjs",
+      },
+      {
+        name: "Tailwind CSS",
+        description:
+          "Build responsive user interfaces efficiently with a utility-first CSS framework.",
+        icon: "tailwindcss",
+      },
+    ],
   },
   {
-    name: "Git",
-    description:
-      "Manage source code, branches, collaboration, and version history with Git.",
-    rating: 5,
-    icon: Icons.git,
-  },
-  {
-    name: "Redis",
-    description:
-      "Use in-memory data structures for caching, queues, sessions, and background processing.",
-    rating: 4,
-    icon: Icons.redis,
-  },
-  {
-    name: "MongoDB",
-    description:
-      "Work with flexible document-oriented data models for applications that benefit from NoSQL storage.",
-    rating: 4,
-    icon: Icons.mongodb,
-  },
-  {
-    name: "Django REST Framework",
-    description:
-      "Build structured REST APIs and authentication systems on top of Django.",
-    rating: 4,
-    icon: Icons.django,
-  },
-  {
-    name: "Nginx",
-    description:
-      "Configure reverse proxies, web servers, SSL termination, and application routing.",
-    rating: 4,
-    icon: Icons.nginx,
-  },
-  {
-    name: "React",
-    description:
-      "Build interactive user interfaces using reusable components and modern React patterns.",
-    rating: 4,
-    icon: Icons.react,
-  },
-  {
-    name: "Next.js",
-    description:
-      "Build modern full-stack React applications with routing, rendering, and optimized production builds.",
-    rating: 4,
-    icon: Icons.nextjs,
-  },
-  {
-    name: "TypeScript",
-    description:
-      "Write safer and more maintainable JavaScript applications with static typing.",
-    rating: 4,
-    icon: Icons.typescript,
-  },
-  {
-    name: "Tailwind CSS",
-    description:
-      "Build responsive user interfaces efficiently with a utility-first CSS framework.",
-    rating: 4,
-    icon: Icons.tailwindcss,
+    title: "Currently Exploring",
+    skills: [
+      {
+        name: "Prometheus",
+        description:
+          "Learning metrics collection and time-series monitoring through small side projects.",
+        icon: "prometheus",
+      },
+      {
+        name: "Grafana",
+        description:
+          "Exploring dashboards and visualization for metrics and system health.",
+        icon: "grafana",
+      },
+      {
+        name: "Elasticsearch",
+        description:
+          "Exploring full-text search and indexing for larger datasets.",
+        icon: "elasticsearch",
+      },
+      {
+        name: "Kibana",
+        description:
+          "Exploring data visualization and querying on top of Elasticsearch.",
+        icon: "kibana",
+      },
+    ],
   },
 ];
-
-export const skills = skillsUnsorted
-  .slice()
-  .sort((a, b) => b.rating - a.rating);
-
-export const featuredSkills = skills.slice(0, 6);
