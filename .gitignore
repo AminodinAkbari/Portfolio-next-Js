@@ -1,7 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-#mcps
+#mcps and other tools related to AI agents
 /.codebase-memory
+specs/
 
 # dependencies
 /node_modules

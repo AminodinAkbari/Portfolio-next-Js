@@ -12,6 +12,8 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/providers/modal-provider";
 
+import { IranVpnNotice } from "@/components/common/iran-vpn-notice";
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -112,31 +114,32 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontHeading.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          themes={[
-            "light",
-            "dark",
-            "retro",
-            "cyberpunk",
-            "paper",
-            "aurora",
-            "synthwave",
-          ]}
-        >
-          {children}
-          <Analytics />
-          <Toaster />
-          <ModalProvider />
-        </ThemeProvider>
-        <Script
-          src="https://convot.xyz/widget.js"
-          data-token="3vpr28Va7E8luRq8DMOStAr9tefOCVqifQ28fpp6grrKS4zflNRZQjQpmeu4os_2nuLmmh1DOshndiN5O1vvGg"
-          data-api-url="https://api.convot.xyz"
-          strategy="afterInteractive"
-        />
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="retro"
+      enableSystem
+      themes={[
+        "light",
+        "dark",
+        "retro",
+        "cyberpunk",
+        "paper",
+        "aurora",
+        "synthwave",
+      ]}
+    >
+      {children}
+      <Analytics />
+      <Toaster />
+      <ModalProvider />
+      <IranVpnNotice />
+    </ThemeProvider>
+          <Script
+            src="https://convot.xyz/widget.js"
+            data-token="H4GLb4uPiZUzijpGNJZZxNt6CPNK3hDrZA5R449-uHHlzoPljubSkhejd3bNkhjaodRcytloM0BsJzUGvYeJ8Q"
+            data-api-url="https://api.convot.xyz"
+            strategy="afterInteractive"
+          />
       </body>
       <GoogleAnalytics gaId={GA_ID} />
     </html>
