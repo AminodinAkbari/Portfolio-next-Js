@@ -6,12 +6,13 @@ import Script from "next/script";
 
 import { AnimatedSection } from "@/components/common/animated-section";
 import { AnimatedText } from "@/components/common/animated-text";
+import { BlogTableOfContents } from "@/components/blogs/blog-table-of-contents";
 import { ClientPageWrapper } from "@/components/common/client-page-wrapper";
 import { Icons } from "@/components/common/icons";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
-import { getAllBlogSlugs, getBlogPost } from "@/lib/blogs";
-import { cn } from "@/lib/utils";
+import { getAllBlogSlugs, getAllBlogsMeta, getBlogPost } from "@/lib/blogs";
+import { cn, formatDate } from "@/lib/utils";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -88,18 +89,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-
   const isoDate = new Date(post.date).toISOString();
+  const formattedDate = formatDate(post.date);
   const ogImage = post.coverImage
     ? `${siteConfig.url}${post.coverImage}`
     : siteConfig.ogImage;
 
-  // BlogPosting JSON-LD — the single most important schema for article SEO
+  const otherPosts = getAllBlogsMeta()
+    .filter((blog) => blog.slug !== slug)
+    .slice(0, 2);
+
   const blogPostSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -137,7 +136,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     },
   };
 
-  // BreadcrumbList for post hierarchy
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -176,8 +174,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
-        {/* Breadcrumb nav (visible, accessible) */}
+      <article className="max-w-6xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
         <AnimatedText delay={0}>
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -213,11 +210,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </nav>
         </AnimatedText>
 
-        {/* Header */}
         <AnimatedSection direction="up">
-          <header className="mb-8">
-            {/* Tags as keywords */}
-            <div className="flex flex-wrap gap-2 mb-4">
+          <header className="mb-10">
+            <div className="flex flex-wrap gap-2 mb-5" aria-label="Tags">
               {post.tags.map((tag) => (
                 <span
                   key={tag}
@@ -228,18 +223,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               ))}
             </div>
 
-            {/* H1 title — single h1 per page */}
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground mb-4">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tight text-foreground mb-5">
               {post.title}
             </h1>
 
-            {/* Description as lead paragraph */}
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-7">
               {post.description}
             </p>
 
-            {/* Author + date + reading time */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pb-6 border-b border-border">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground pb-7 border-b border-border">
               <address className="flex items-center gap-1.5 not-italic">
                 <Icons.user className="w-4 h-4" />
                 <a
@@ -264,15 +256,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </header>
         </AnimatedSection>
 
-        {/* Cover image (if exists) */}
         {post.coverImage && (
           <AnimatedSection direction="up" delay={0.05}>
-            <figure className="mb-10">
+            <figure className="mb-12">
               <Image
                 src={post.coverImage}
                 alt={post.title}
-                width={768}
-                height={400}
+                width={960}
+                height={540}
                 className="w-full h-auto rounded-lg border border-border object-cover"
                 priority
               />
@@ -280,44 +271,73 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </AnimatedSection>
         )}
 
-        {/* Markdown content wrapped in semantic section */}
-        <AnimatedSection direction="up" delay={0.1}>
-          <section
-            className="blog-content"
-            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-          />
-        </AnimatedSection>
-
-        {/* Footer nav */}
-        <AnimatedSection
-          direction="up"
-          delay={0.15}
-          className="mt-16 pt-8 border-t border-border"
-        >
-          <footer className="flex items-center justify-between">
-            <Link
-              href="/blogs"
-              className={cn(
-                buttonVariants({ variant: "outline" }),
-                "rounded-lg gap-2"
-              )}
-            >
-              <Icons.chevronLeft className="w-4 h-4" />
-              All posts
-            </Link>
-            <div className="text-sm text-muted-foreground">
-              Written by{" "}
-              <Link
-                href={siteConfig.links.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-foreground hover:text-primary transition-colors"
-              >
-                {siteConfig.authorName}
-              </Link>
+        <div className="blog-article-layout">
+          <div className="min-w-0">
+            <div className="lg:hidden mb-8">
+              <BlogTableOfContents items={post.toc} />
             </div>
-          </footer>
-        </AnimatedSection>
+
+            <AnimatedSection direction="up" delay={0.1}>
+              <section
+                className="blog-content"
+                dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+              />
+            </AnimatedSection>
+
+            <AnimatedSection
+              direction="up"
+              delay={0.15}
+              className="mt-16 pt-8 border-t border-border"
+            >
+              <footer>
+                {otherPosts.length > 0 && (
+                  <div className="mb-8">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+                      More posts
+                    </p>
+                    <ul className="space-y-3">
+                      {otherPosts.map((blog) => (
+                        <li key={blog.slug}>
+                          <Link
+                            href={`/blogs/${blog.slug}`}
+                            className="group flex flex-col gap-1"
+                          >
+                            <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                              {blog.title}
+                            </span>
+                            <time
+                              dateTime={new Date(blog.date).toISOString()}
+                              className="text-xs text-muted-foreground"
+                            >
+                              {formatDate(blog.date)}
+                            </time>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <Link
+                  href="/blogs"
+                  className={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "rounded-lg gap-2"
+                  )}
+                >
+                  <Icons.chevronLeft className="w-4 h-4" />
+                  All posts
+                </Link>
+              </footer>
+            </AnimatedSection>
+          </div>
+
+          <aside className="self-start hidden lg:block lg:sticky lg:top-8">
+            <AnimatedSection direction="up" delay={0.12}>
+              <BlogTableOfContents items={post.toc} />
+            </AnimatedSection>
+          </aside>
+        </div>
       </article>
     </ClientPageWrapper>
   );

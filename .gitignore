@@ -3,6 +3,7 @@
 #mcps and other tools related to AI agents
 /.codebase-memory
 specs/
+/graphify-out
 
 # dependencies
 /node_modules
