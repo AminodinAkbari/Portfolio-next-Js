@@ -141,7 +141,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             strategy="afterInteractive"
           />
       </body>
-      <GoogleAnalytics gaId={GA_ID} />
+      {/* <GoogleAnalytics gaId={GA_ID} /> */}
     </html>
   );
 }
