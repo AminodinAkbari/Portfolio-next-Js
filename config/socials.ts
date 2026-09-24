@@ -12,24 +12,24 @@ export const SocialLinks: SocialInterface[] = [
     name: "Github",
     username: "@namanbarkiya",
     icon: Icons.gitHub,
-    link: "https://github.com/namanbarkiya",
+    link: "https://github.com/AminodinAkbari",
   },
   {
     name: "LinkedIn",
     username: "Amin Akbari",
     icon: Icons.linkedin,
-    link: "https://www.linkedin.com/in/namanbarkiya",
+    link: "https://www.linkedin.com/in/aminodin-akbari/",
   },
-  {
-    name: "Twitter",
-    username: "@namanbarkiya",
-    icon: Icons.twitter,
-    link: "https://twitter.com/namanbarkiya",
-  },
+  // {
+  //   name: "Twitter",
+  //   username: "@aminodinakbari",
+  //   icon: Icons.twitter,
+  //   link: "https://twitter.com/aminodinakbari",
+  // },
   {
     name: "Gmail",
     username: "naman.barkiya02",
     icon: Icons.gmail,
-    link: "mailto:naman.barkiya02@gmail.com",
+    link: "mailto:Aminoddinakbari.young2021@gmail.com",
   },
 ];
