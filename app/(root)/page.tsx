@@ -8,6 +8,8 @@ import { AnimatedSection } from "@/components/common/animated-section";
 import { AnimatedText } from "@/components/common/animated-text";
 import { ClientPageWrapper } from "@/components/common/client-page-wrapper";
 import { Icons } from "@/components/common/icons";
+import { HeroBackground } from "@/components/common/hero-background";
+import { HeroCard } from "@/components/common/hero-card";
 import ContributionCard from "@/components/contributions/contribution-card";
 import ExperienceCard from "@/components/experience/experience-card";
 import ProjectCard from "@/components/projects/project-card";
@@ -77,73 +79,78 @@ export default function IndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
 
-      <section className="space-y-6 pb-8 pt-6 mb-0 md:pb-12 md:py-20 lg:py-32 h-screen flex items-center">
-        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center -mt-20">
+      <section className="relative h-screen overflow-hidden pb-8 pt-6 md:pb-12 md:py-20 lg:py-32">
+          <HeroBackground />
+          <HeroCard>
+          <div className="flex w-full flex-col items-center justify-center gap-4 md:w-auto md:flex-row md:gap-12 lg:gap-16">
           <Image
             src={profileImg}
-            height={100}
-            width={100}
-            sizes="100vw"
-            className="bg-primary rounded-full mb-0 h-auto md:mb-2 w-[60%] max-w-[16rem] border-8 border-primary"
-            alt="Amin Akbari - Applied AI Engineer Portfolio"
+            height={400}
+            width={400}
+            // sizes="(max-width: 640px) 60vw, 224px"
+            className="shrink-0 left-1/2 top-0 z-20 h-40 w-40 object-cover sm:h-48 sm:w-48 md:h-auto md:w-[400px] md:object-fill rounded-full border-8 border-primary bg-primary"
+            alt="Amin Akbari - Backend first / full stack developer"
             priority
           />
-          <AnimatedText
-            as="h1"
-            delay={0.2}
-            className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            Amin Akbari
-          </AnimatedText>
-          <AnimatedText
-            as="h3"
-            delay={0.4}
-            className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
-          >
-            Applied AI Engineer
-          </AnimatedText>
-          <div className="mt-4 max-w-[42rem] text-center">
-            <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              Software engineer working at the intersection of AI, data, and
-              scalable software systems.
-            </p>
-          </div>
+          <div className="flex w-full flex-col items-center gap-4 rounded-2xl px-3 text-center md:w-auto md:flex-1">
+            <AnimatedText
+              as="h1"
+              delay={0.2}
+              className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
+            >
+              Amin Akbari
+            </AnimatedText>
+            <AnimatedText
+              as="h3"
+              delay={0.4}
+              className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
+            >
+              Applied AI Engineer
+            </AnimatedText>
+            <div className="mt-4 max-w-[42rem] text-center">
+              <p className="leading-normal text-muted-foreground text-sm sm:text-base">
+                Software engineer working at the intersection of AI, data, and
+                scalable software systems.
+              </p>
+            </div>
 
-          <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:space-x-4 gap-3">
-            <AnimatedText delay={0.6}>
-              <Link
-                href={"/resume"}
-                target="_blank"
-                className={cn(buttonVariants({ size: "lg" }))}
-                aria-label="View resume"
-              >
-                <Icons.post className="w-4 h-4 mr-2" /> Resume
-              </Link>
-            </AnimatedText>
-            <AnimatedText delay={0.8}>
-              <Link
-                href={"/contact"}
-                rel="noreferrer"
-                className={cn(
-                  buttonVariants({
-                    variant: "outline",
-                    size: "lg",
-                  })
-                )}
-                aria-label="Contact Amin Akbari"
-              >
-                <Icons.contact className="w-4 h-4 mr-2" /> Contact
-              </Link>
+            <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:space-x-4 gap-3">
+              <AnimatedText delay={0.6}>
+                <Link
+                  href={"/resume"}
+                  target="_blank"
+                  className={cn(buttonVariants({ size: "lg" }))}
+                  aria-label="View resume"
+                >
+                  <Icons.post className="w-4 h-4 mr-2" /> Resume
+                </Link>
+              </AnimatedText>
+              <AnimatedText delay={0.8}>
+                <Link
+                  href={"/contact"}
+                  rel="noreferrer"
+                  className={cn(
+                    buttonVariants({
+                      variant: "outline",
+                      size: "lg",
+                    })
+                  )}
+                  aria-label="Contact Amin Akbari"
+                >
+                  <Icons.contact className="w-4 h-4 mr-2" /> Contact
+                </Link>
+              </AnimatedText>
+            </div>
+            <AnimatedText delay={1.2}>
+              <Icons.chevronDown className="h-6 w-6 mt-10" />
             </AnimatedText>
           </div>
-          <AnimatedText delay={1.2}>
-            <Icons.chevronDown className="h-6 w-6 mt-10" />
-          </AnimatedText>
-        </div>
+          </div>
+        </HeroCard>
       </section>
       <AnimatedSection
         direction="up"
-        className="container space-y-6 bg-muted py-10 my-14"
+        className="container space-y-6 bg-muted py-10"
         id="projects"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">

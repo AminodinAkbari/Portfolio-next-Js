@@ -51,6 +51,12 @@ ol, ul, menu {
 
     --d: 700ms;
     --e: cubic-bezier(0.19, 1, 0.22, 1);
+
+    /* Hero layout (003-hero-card-redesign): single source of truth for avatar
+       size, 50/50 overlap offset, and card clearance (research R1/R5).
+       14rem = ~12.5% reduction from the original 16rem max (FR-007). */
+    --hero-avatar-size: min(14rem, 60vw);
+    --hero-card-pad-top: 80px;
   }
 
   .dark {
