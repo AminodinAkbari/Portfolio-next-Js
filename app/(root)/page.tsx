@@ -82,16 +82,17 @@ export default function IndexPage() {
       <section className="relative h-screen overflow-hidden pb-8 pt-6 md:pb-12 md:py-20 lg:py-32">
           <HeroBackground />
           <HeroCard>
+          <div className="flex w-full flex-col items-center justify-center gap-4 md:w-auto md:flex-row md:gap-12 lg:gap-16">
           <Image
             src={profileImg}
-            height={250}
-            width={250}
+            height={400}
+            width={400}
             // sizes="(max-width: 640px) 60vw, 224px"
-            className="left-1/2 top-0 z-20 h-auto  rounded-full border-8 border-primary bg-primary"
-            alt="Amin Akbari - Applied AI Engineer Portfolio"
+            className="shrink-0 left-1/2 top-0 z-20 h-40 w-40 object-cover sm:h-48 sm:w-48 md:h-auto md:w-[400px] md:object-fill rounded-full border-8 border-primary bg-primary"
+            alt="Amin Akbari - Backend first / full stack developer"
             priority
           />
-          <div className="flex w-full flex-col items-center gap-4 rounded-2xl px-3 text-center">
+          <div className="flex w-full flex-col items-center gap-4 rounded-2xl px-3 text-center md:w-auto md:flex-1">
             <AnimatedText
               as="h1"
               delay={0.2}
@@ -144,11 +145,12 @@ export default function IndexPage() {
               <Icons.chevronDown className="h-6 w-6 mt-10" />
             </AnimatedText>
           </div>
+          </div>
         </HeroCard>
       </section>
       <AnimatedSection
         direction="up"
-        className="container space-y-6 bg-muted py-10 my-14"
+        className="container space-y-6 bg-muted py-10"
         id="projects"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
